@@ -1,0 +1,67 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	--main-variable: 36px;
+	--ratio: 1.618;
+	--times-ratio: calc(var(--main-variable) * var(--ratio));
+	--times-ratio-pow: calc(var(--main-variable) * (var(--ratio) * var(--ratio)))
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	font-size: 16px;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	color: #424242;
+	font-size: var(--times-ratio-pow);
+	line-height: var(--times-ratio-pow);
+	gap: calc(var(--times-ratio-pow) - var(--times-ratio));
+	border: none;
+	padding: var(--main-variable);
+}
+
+.logo>div {
+	background-color: #ff5252;
+	padding-top: calc((var(--main-variable) - 12px));
+	padding-bottom: calc((var(--main-variable) - 6px));
+	padding-inline: var(--times-ratio);
+}
+
+.logo>div>span {
+	color: white;
+	position: relative;
+	display: inline-block;
+}
+
+.logo>div>span:after {
+	content: '';
+	position: absolute;
+	top: calc((var(--main-variable) - 12px) * -1);
+	bottom: calc((var(--main-variable) - 6px) * -1);
+	left: calc(var(--times-ratio) * -1);
+	right: calc(var(--times-ratio) * -1);
+	background-color: #d50000;
+	z-index: -2;
+	transform: rotate(-6deg);
+}
+
+.logo>div>span:before {
+	content: '';
+	position: absolute;
+	top: calc((var(--main-variable) - 12px) * -1);
+	bottom: calc((var(--main-variable) - 6px) * -1);
+	left: calc(var(--times-ratio) * -1);
+	right: calc(var(--times-ratio) * -1);
+	background-color: rgba(0, 0, 0, .2);
+	z-index: -1;
+	transform: rotate(-2deg);
+}
